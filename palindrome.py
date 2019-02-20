@@ -20,28 +20,27 @@ pal = re.sub(r'[^A-Za-z]', '', pal.lower())
 # this uses slicing for the palindrome function
 
 
-def is_palindrome():
-    print(pal)
-    return pal == pal[::-1]
+# def is_palindrome():
+#     print(pal)
+#     return pal == pal[::-1]
 
 
 # recursive palindrome function
 
 
-def recursive(pal):
+def recursive(var):
     """this is a recursive palindrome checker """
-    print(pal)
-    if len(pal) < 2:
+    print(var)
+    if len(var) < 2:
         return True
-    return pal[0] == pal[-1] and \
-        recursive(pal[1:len(pal) - 1])
+    return var[0] == var[-1] and recursive(var[1:len(var) - 1])
 
 
 # iterative palindrome function
 
-def iterative(pal):
-    for char in range(len(pal)):
-        return pal(char) == pal[-(char + 1)]
+# def iterative(pal):
+#     for char in range(len(pal)):
+#         return pal(char) == pal[-(char + 1)]
 
 
 if recursive(pal):
