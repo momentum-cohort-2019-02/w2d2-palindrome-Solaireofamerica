@@ -13,24 +13,38 @@
 #             print('is not a palindrome')
 
 
-# palindrome()
+import re
 
-# get a string from the user that may be a palindrome    
+pal = input('Enter a possible palindrome: ')
+pal = re.sub(r'[^A-Za-z]', '', pal.lower())
+# this uses slicing for the palindrome function
+
+
 def is_palindrome():
-    pal = input('Enter a possible palindrome: ')
-    string = pal.replace(" ", "").replace(".", "").replace(",", "").replace("-", "")
-    string = string.lower()
-    # need to strip string of punctuation
-    if len(string) <= 1:
+    print(pal)
+    return pal == pal[::-1]
+
+
+# recursive palindrome function
+
+
+def recursive(pal):
+    """this is a recursive palindrome checker """
+    print(pal)
+    if len(pal) < 2:
         return True
-    if string[0] == string[-1]:
-        if string[-1::-1] == string[::1]:
-            return True
-        else:
-            return False
+    return pal[0] == pal[-1] and \
+        recursive(pal[1:len(pal) - 1])
 
 
-if is_palindrome() is True:
+# iterative palindrome function
+
+def iterative(pal):
+    for char in range(len(pal)):
+        return pal(char) == pal[-(char + 1)]
+
+
+if recursive(pal):
     print('is a palindrome')
 else:
     print('is not a palindrome')
